@@ -7,18 +7,18 @@ body {
 }
 
 .header {
-  height: 100px;
+  height: 70px;
   background-color: #061E29;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 24px;
   position: relative;
   z-index: 1001;
 }
 
 .logo {
-  height: 65px;
+  height: 45px;
   margin-right: 10px;
 }
 
@@ -29,7 +29,7 @@ body {
 
 .header-icon {
   margin-left: 20px;
-  font-size: 30px;
+  font-size: 24px;
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 .menu-icon {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 

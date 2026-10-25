@@ -14,13 +14,13 @@
 
 .documents-header h2 {
   margin: 0;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .documents-header p {
   margin-top: 4px;
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.7;
 }
 
@@ -41,17 +41,17 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 18px 22px;
+  padding: 14px 18px;
   background-color: #2b5563;
 }
 
 .documents-table-wrapper {
-  padding: 0 0 22px 0;
+  padding: 0 0 16px 0;
 }
 
 .documents-card-header h3 {
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -69,7 +69,7 @@
   min-width: 0;
   table-layout: fixed;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 0;
 }
 
@@ -86,7 +86,7 @@
 
 .documents-table th {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.4px;
   color: #dce6ec;
   border-bottom: 2px solid rgba(255, 255, 255, 0.15);
@@ -94,7 +94,7 @@
 
 .documents-table th,
 .documents-table td {
-  padding: 14px 18px;
+  padding: 10px 14px;
   text-align: left;
   border-bottom: 1px solid rgba(243, 244, 244, 0.08);
   white-space: nowrap;

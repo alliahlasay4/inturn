@@ -46,10 +46,10 @@
 .notification-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 
-  padding: 16px 18px;
-  border-radius: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
   background-color: #bcd4df;
   color: #2b3440;
 
@@ -57,18 +57,18 @@
 }
 
 .notification-item + .notification-item {
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .notification-item .text h4 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .notification-item .text p {
-  margin: 4px 0 0;
-  font-size: 14px;
+  margin: 2px 0 0;
+  font-size: 12px;
   opacity: 0.75;
 }
 

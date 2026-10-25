@@ -165,7 +165,7 @@
   border: none;
   color: #f3f4f4;
   opacity: 0.6;
-  font-size: 22px;
+  font-size: 16px;
   cursor: pointer;
   padding: 0;
 }
@@ -190,7 +190,7 @@
 .attendance-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 13px;
   min-width: 720px;
 }
 
@@ -202,17 +202,17 @@
 
 .attendance-table th,
 .attendance-table td {
-  padding: 12px 14px;
+  padding: 10px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-align: left;
 }
 
 .attendance-table td {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .attendance-table th {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .attendance-table tbody tr:hover {
@@ -586,7 +586,7 @@
 }
 
 .overall-left h3 {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -594,8 +594,8 @@
 .year-select {
   background-color: rgba(255, 255, 255, 0.08);
   border: none;
-  padding: 12px 14px;
-  margin-bottom: 25px;
+  padding: 8px 12px;
+  margin-bottom: 20px;
   border-radius: 6px;
   color: #f3f4f4;
   font-size: 13px;
@@ -608,30 +608,30 @@
 }
 
 .overall-header {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* CENTER: summary cards */
 .monthly-cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  gap: 16px;
   /* match table spacing rhythm */
   width: 100%;
 }
 
 .summary-card {
-  border-radius: 20px;
+  border-radius: 14px;
   /* softer, like main cards */
-  padding: 28px;
+  padding: 18px;
   /* more breathing room */
-  min-height: 130px;
+  min-height: 100px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* vertically balanced */
-  gap: 10px;
+  gap: 6px;
 }
 
 .summary-card:hover {
@@ -639,12 +639,12 @@
 }
 
 .summary-card p {
-  font-size: 13px;
+  font-size: 12px;
   opacity: 0.7;
 }
 
 .summary-card h3 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
 }
 
