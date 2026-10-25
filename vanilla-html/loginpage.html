@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InTurn - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            950: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-900 dark:to-slate-800 transition-colors duration-200">
+    <div class="min-h-screen flex items-center justify-center relative p-4">
+        <!-- Navigation Buttons -->
+        <div class="absolute top-4 right-4 flex gap-2">
+            <!-- Back to Portfolio -->
+            <a
+                href="../../../clark_martinez_portfolio_v3.html"
+                class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/80 text-slate-600 hover:bg-white dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 shadow-sm transition-colors text-sm font-medium"
+            >
+                <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                Portfolio
+            </a>
+
+            <!-- Theme Toggle -->
+            <button
+                id="theme-toggle"
+                type="button"
+                class="p-2 rounded-lg bg-white/80 text-slate-600 hover:bg-white dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 shadow-sm transition-colors"
+                aria-label="Toggle theme"
+            >
+                <i data-lucide="moon" id="theme-icon-moon" class="h-5 w-5"></i>
+                <i data-lucide="sun" id="theme-icon-sun" class="h-5 w-5 hidden"></i>
+            </button>
+        </div>
+
+        <!-- Login Card -->
+        <div class="w-full max-w-md bg-white dark:bg-slate-800 rounded-lg shadow-md p-6">
+            <div class="text-center mb-6">
+                <a href="dashboard.html" class="inline-block hover:opacity-80 transition-opacity">
+                    <h1 class="text-3xl font-bold text-blue-600">InTurn</h1>
+                </a>
+                <p class="text-gray-600 dark:text-slate-400 mt-2">Intern Management System</p>
+            </div>
+            
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">Login</h2>
+            
+            <form id="login-form">
+                <!-- Email Input -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 dark:text-slate-300 font-medium mb-2">
+                        Username/Email
+                    </label>
+                    <input 
+                        type="text"
+                        id="email"
+                        placeholder="Enter your username or email (optional for demo)"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white dark:bg-slate-700 dark:text-white dark:placeholder-slate-400"
+                    />
+                    <p id="email-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                </div>
+                
+                <!-- Password Input -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 dark:text-slate-300 font-medium mb-2">
+                        Password
+                    </label>
+                    <input 
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password (optional for demo)"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white dark:bg-slate-700 dark:text-white dark:placeholder-slate-400"
+                    />
+                    <p id="password-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                </div>
+
+                <!-- Role Selection -->
+                <div class="mb-4">
+                    <p class="block text-gray-700 dark:text-slate-300 font-medium mb-2">Login as</p>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 text-gray-700 dark:text-slate-300 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="admin"
+                                checked
+                                class="w-4 h-4 text-blue-600"
+                            />
+                            <span>Admin</span>
+                        </label>
+                        <label class="flex items-center gap-2 text-gray-700 dark:text-slate-300 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="intern"
+                                class="w-4 h-4 text-blue-600"
+                            />
+                            <span>Intern</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Login Button -->
+                <button 
+                    type="submit"
+                    class="w-full mt-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                    Login
+                </button>
+            </form>
+            
+            <p class="text-center text-gray-600 dark:text-slate-400 mt-4">
+                Don't have an account? <a href="#" class="text-blue-600 hover:underline">Register</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('theme-icon-moon');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const html = document.documentElement;
+
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            moonIcon.classList.add('hidden');
+            sunIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            if (isDark) {
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            } else {
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+            }
+        });
+
+        // Form Submission Logic
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const role = document.querySelector('input[name="role"]:checked').value;
+
+            // Save auth state (simulation)
+            localStorage.setItem('auth', JSON.stringify({ role }));
+            
+            // Redirect based on role
+            if (role === 'intern') {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'admin-dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+.notifications-page {
+  padding: 24px;
+  color: #F3F4F4;
+}
+
+
+.notifications-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.notifications-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d3b57;
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+
+.notification-filters button {
+  background: transparent;
+  color: #f3f4f4;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.notification-filters button.active {
+  background: #ffffff;
+  color: #061e29;
+}
+
+.notification-filters span {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px 18px;
+  border-radius: 14px;
+  background-color: #bcd4df;
+  color: #2b3440;
+
+  position: relative;
+}
+
+.notification-item + .notification-item {
+  margin-top: 14px;
+}
+
+.notification-item .text h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notification-item .text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.notification-item .time {
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.notification-item .close {
+  margin-left: 12px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.notification-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 14px 0 0 14px;
+}
+
+.notification-item.info::before {
+  background-color: #3b82f6;
+}
+
+.notification-item.success::before {
+  background-color: #10b981;
+}
+
+.notification-item.warning::before {
+  background-color: #f59e0b;
+}
+
+.notification-item.danger::before {
+  background-color: #ef4444;
+}
+
+
+.mark-read-btn {
+  background: #5F9598;
+  color: #061E29;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;        /* force one row */
+  align-items: center;
+  gap: 8px;                    /* space between icon & text */
+  white-space: nowrap;   
+}
+
+/* Read notifications */
+.notification-item:not(.unread) {
+  background-color: #c6cccf; /* more muted */
+  color: #2f3b45;
+  transform: scale(0.99);
+}
+
+.notification-item {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.notification-item::before {
+  transition: opacity 0.25s ease;
+}
+
+.notification-item:not(.unread)::before {
+  opacity: 0.35;
+}
+
+/* Footer */
+.notifications-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.next-btn {
+  background: #1D546D;
+  border: none;
+  color: #F3F4F4;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.notification-filters button.info span {
+  background-color: #3b82f6;
+}
+
+.notification-filters button.warning span {
+  background-color: #f59e0b;
+  color: #08121b;
+}
+
+.notification-filters button.success span {
+  background-color: #10b981;
+}
+
+.notification-filters button.unread span {
+  background-color: #64748b;
+}
+
+.notification-item.unread {
+  background-color: #9dd2f0; /* slightly lighter */
+  box-shadow: inset 4px 0 0 #3b82f6;
+}
+
+.mark-read-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+@media (max-width: 768px) {
+  .notifications-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .mark-read-btn {
+    justify-content: center;
+  }
+}
+
+/* =========================
+   LIGHT MODE - NOTIFICATIONS PAGINATION
+========================= */
+
+body.light .notifications-footer {
+  background: #e9eff2;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #5c6b75;
+  opacity: 1;
+}
+
+/* Page text */
+body.light .notifications-footer span {
+  color: #5c6b75;
+}
+
+/* Page number buttons */
+body.light .notifications-footer button {
+  background: transparent;
+  border: none;
+  color: #5c6b75;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Active page */
+body.light .notifications-footer button.active {
+  background: #2b5d73;
+  color: #ffffff;
+}
+
+/* Hover page numbers */
+body.light .notifications-footer button:not(.active):hover {
+  background: rgba(43, 93, 115, 0.15);
+}
+
+/* Next button */
+body.light .next-btn {
+  background: #2b5d73;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 4px 12px;
+}
+
+body.light .next-btn:hover {
+  background: #244e61;
+}

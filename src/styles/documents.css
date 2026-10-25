@@ -1,0 +1,353 @@
+.documents-page {
+  padding: 24px;
+  width: 100%;
+  min-height: 100vh;
+  background: #242D35;
+  overflow-x: hidden;
+  border-radius: 24px;
+}
+
+/* Page header */
+.documents-header {
+  margin-bottom: 20px;
+}
+
+.documents-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.documents-header p {
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Card */
+.documents-card {
+  background: #1a2630;
+  border-radius: 16px;
+  padding: 0;
+  margin-top: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Card header */
+.documents-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 22px;
+  background-color: #2b5563;
+}
+
+.documents-table-wrapper {
+  padding: 0 0 22px 0;
+}
+
+.documents-card-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.documents-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+
+/* ===== DOCUMENTS TABLE (Same as Reports) ===== */
+
+.documents-table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+/* Table header */
+.documents-table thead {
+  background: #101F27;
+}
+
+.documents-table th.action-header {
+  text-align: right;
+  padding-right: 50px;
+  /* match button spacing */
+}
+
+.documents-table th {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  color: #dce6ec;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.documents-table th,
+.documents-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(243, 244, 244, 0.08);
+  white-space: nowrap;
+}
+
+/* Rows */
+.documents-table tbody tr {
+  background-color: #1a2630;
+  transition: background 0.2s ease;
+}
+
+.documents-table tbody tr:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.documents-table tbody tr:hover {
+  background-color: #22313c;
+}
+
+.documents-table td {
+  font-size: 14px;
+  color: #e6eef3;
+}
+
+.documents-table td:first-child {
+  font-weight: 500;
+}
+
+.doc-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-name svg {
+  font-size: 18px;
+}
+
+/* Download button */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #5f9598;
+  border: none;
+  color: #061e29;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  background-color: #5f9598;
+  border: none;
+  color: #061e29;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+
+  /* Page padding */
+  .documents-page {
+    padding: 16px;
+  }
+
+  /* Header text */
+  .documents-header h2 {
+    font-size: 22px;
+  }
+
+  .documents-header p {
+    font-size: 13px;
+  }
+
+  /* Card spacing */
+  .documents-card {
+    padding: 0;
+    /* keep it zero */
+    border-radius: 16px;
+    /* keep consistent */
+    overflow: hidden;
+    /* ensure clipping */
+  }
+
+  .documents-card-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  /* Card header layout */
+  .documents-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .documents-card-header h3 {
+    font-size: 20px;
+  }
+
+  .documents-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .documents-table {
+    min-width: 0;
+    table-layout: auto;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .documents-table th,
+  .documents-table td {
+    white-space: normal;
+    /* allow wrapping */
+    word-break: break-word;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  /* Search box full width */
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Download button */
+  .download-btn {
+    font-size: 12px;
+    padding: 3px 7px;
+    white-space: nowrap;
+  }
+
+  /* Pagination spacing */
+  .pagination {
+    gap: 10px;
+  }
+}
+
+/* =========================
+   LIGHT MODE - DOCUMENTS
+========================= */
+
+body.light .documents-page {
+  background: transparent;
+}
+
+/* Main Card */
+body.light .documents-card {
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Card header strip */
+body.light .documents-card-header {
+  background-color: #2b5d73;
+  color: #ffffff;
+}
+
+/* Page header text */
+body.light .documents-header p {
+  opacity: 0.6;
+}
+
+/* Table header */
+body.light .documents-table thead {
+  background: #f3f6f8;
+}
+
+body.light .documents-table th {
+  color: #1f2d36;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Table rows */
+body.light .documents-table tbody tr {
+  background-color: #ffffff;
+}
+
+body.light .documents-table tbody tr:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light .documents-table tbody tr:hover {
+  background-color: #f5f8fa;
+}
+
+body.light .documents-table td {
+  color: #2c3e47;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Download button */
+body.light .download-btn {
+  background-color: #2b5d73;
+  color: #ffffff;
+}
+
+body.light .download-btn:hover {
+  background-color: #244e61;
+}
+
+/* Pagination */
+body.light .pagination button {
+  background-color: #2b5d73;
+  color: #ffffff;
+}
+
+body.light .pagination button:disabled {
+  opacity: 0.4;
+}
+
+/* =========================
+   DOWNLOAD ALL FLOATING BUTTON
+========================= */
+
+.download-all-btn {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+
+  background-color: #1D546D;
+  color: #F3F4F4;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}

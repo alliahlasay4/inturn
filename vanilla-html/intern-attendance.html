@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InTurn - Attendance</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            position: relative;
+        }
+        .calendar-day.active {
+            border-color: var(--accent-color);
+        }
+        .day-num { font-weight: 700; }
+        .day-status {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 4px;
+        }
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+        }
+        .log-table th, .log-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .log-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fa-solid fa-bars header-icon" id="sidebar-toggle"></i>
+            <h1 class="text-2xl font-bold" style="color: white; font-size: 24px;">InTurn</h1>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell header-icon"></i>
+            <div class="profile-wrapper">
+                <i class="fa-solid fa-circle-user header-icon" id="profile-toggle"></i>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <button>Profile</button>
+                    <button id="mode-toggle">Light Mode</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout" id="main-layout">
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>Documents</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="intern-attendance.html" class="active">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="dashboard">
+                <div class="welcome-card">
+                    <h2>Attendance Tracker</h2>
+                    <p>Log your daily hours and view your attendance history.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Tracker -->
+                    <div class="card" style="grid-area: attendance;">
+                        <h3>Daily Log</h3>
+                        <div class="card-body">
+                            <div class="attendance-body">
+                                <div class="attendance-left">
+                                    <p>Ready to start your day? Click the button below to record your time in.</p>
+                                    <div class="attendance-row">
+                                        <span class="label">Date:</span>
+                                        <span>June 11, 2026</span>
+                                    </div>
+                                </div>
+                                <div class="attendance-right">
+                                    <button class="primary-btn" id="time-in-btn">Time In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar -->
+                    <div class="card" style="grid-area: submission;">
+                        <h3>June 2026</h3>
+                        <div class="card-body">
+                            <div class="calendar-grid">
+                                <!-- Mock calendar days -->
+                                <div class="calendar-day"><span class="day-num">1</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">2</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">3</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">4</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">5</span><div class="day-status" style="background:var(--danger-color)"></div></div>
+                                <div class="calendar-day">6</div>
+                                <div class="calendar-day">7</div>
+                                <div class="calendar-day"><span class="day-num">8</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">9</span><div class="day-status" style="background:var(--warning-color)"></div></div>
+                                <div class="calendar-day"><span class="day-num">10</span><div class="day-status" style="background:var(--success-color)"></div></div>
+                                <div class="calendar-day active"><span class="day-num">11</span></div>
+                                <!-- ... more days ... -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History -->
+                    <div class="card" style="grid-area: summary; grid-column: 1 / -1;">
+                        <h3>Recent Logs</h3>
+                        <div class="card-body">
+                            <table class="log-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time In</th>
+                                        <th>Time Out</th>
+                                        <th>Total Hours</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>June 10, 2026</td>
+                                        <td>08:00 AM</td>
+                                        <td>05:00 PM</td>
+                                        <td>9.0h</td>
+                                        <td style="color:var(--success-color)">Present</td>
+                                    </tr>
+                                    <tr>
+                                        <td>June 09, 2026</td>
+                                        <td>08:15 AM</td>
+                                        <td>05:00 PM</td>
+                                        <td>8.75h</td>
+                                        <td style="color:var(--warning-color)">Late</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mainLayout = document.getElementById('main-layout');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            if (window.innerWidth > 1024) {
+                mainLayout.classList.toggle('sidebar-collapsed');
+            } else {
+                sidebar.classList.toggle('open');
+            }
+        });
+
+        // Profile Dropdown
+        const profileToggle = document.getElementById('profile-toggle');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        profileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('show');
+        });
+
+        // Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light');
+            modeToggle.innerText = 'Dark Mode';
+        }
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            modeToggle.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('auth');
+            window.location.href = 'loginpage.html';
+        });
+    </script>
+</body>
+</html>

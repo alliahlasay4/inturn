@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InTurn - Manage Interns</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .data-table th, .data-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .data-table th {
+            background: var(--card-header-bg);
+            color: white;
+            font-weight: 600;
+        }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-badge.active { background: rgba(111, 191, 159, 0.2); color: var(--success-color); }
+        .status-badge.inactive { background: rgba(224, 108, 117, 0.2); color: var(--danger-color); }
+        
+        .search-bar {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fa-solid fa-bars header-icon" id="sidebar-toggle"></i>
+            <h1 class="text-2xl font-bold" style="color: white; font-size: 24px;">InTurn Admin</h1>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell header-icon"></i>
+            <div class="profile-wrapper">
+                <i class="fa-solid fa-circle-user header-icon" id="profile-toggle"></i>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <button>Profile</button>
+                    <button id="mode-toggle">Light Mode</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout" id="main-layout">
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="interns.html" class="active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Interns</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-folder-tree"></i>
+                        <span>Documents</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="dashboard">
+                <div class="welcome-card" style="margin-bottom: 24px;">
+                    <h2>Intern Management</h2>
+                    <p>View and manage all registered interns in the system.</p>
+                </div>
+
+                <input type="text" class="search-bar" placeholder="Search by name, email or department...">
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Development</td>
+                            <td>john@example.com</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td><button class="view-details-btn">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Design</td>
+                            <td>jane@example.com</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td><button class="view-details-btn">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Bob Johnson</td>
+                            <td>QA</td>
+                            <td>bob@example.com</td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td><button class="view-details-btn">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mainLayout = document.getElementById('main-layout');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            if (window.innerWidth > 1024) {
+                mainLayout.classList.toggle('sidebar-collapsed');
+            } else {
+                sidebar.classList.toggle('open');
+            }
+        });
+
+        // Profile Dropdown
+        const profileToggle = document.getElementById('profile-toggle');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        profileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('show');
+        });
+
+        // Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light');
+            modeToggle.innerText = 'Dark Mode';
+        }
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            modeToggle.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('auth');
+            window.location.href = 'loginpage.html';
+        });
+    </script>
+</body>
+</html>

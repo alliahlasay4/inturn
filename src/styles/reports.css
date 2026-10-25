@@ -1,0 +1,819 @@
+  .reports-page {
+    padding: 24px;
+    background: #242D35;
+    border-radius: 24px;
+  }
+
+  .reports-card {
+    background: #1a2630;
+    border-radius: 16px;
+    padding: 0;
+    margin-top: 10px;
+    overflow: hidden;
+
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    background-color: #2b5563;
+    /* ← this is the teal strip */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+
+  .reports-header h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .filter-btn {
+    background-color: #F3F4F4;
+    color: #061E29;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* ===== REPORTS TABLE (Documents Style) ===== */
+
+  /* ===== REPORTS TABLE (Documents Style Match) ===== */
+
+  .reports-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  .reports-table-wrapper {
+    padding: 0 0 22px 0;
+  }
+
+  /* Header */
+  .reports-table thead {
+    background: #101F27;
+  }
+
+  .reports-table th {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    text-transform: none;
+    color: #dce6ec;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* Cells */
+  .reports-table th,
+  .reports-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(243, 244, 244, 0.08);
+    white-space: nowrap;
+  }
+
+  /* Row Base */
+  .reports-table tbody tr {
+    background-color: #1a2630;
+    transition: background 0.2s ease;
+  }
+
+
+  .reports-table th:nth-child(3),
+  .reports-table td:nth-child(3),
+  .reports-table th:nth-child(4),
+  .reports-table td:nth-child(4),
+  .reports-table th:nth-child(5),
+  .reports-table td:nth-child(5) {
+    text-align: center;
+  }
+
+  .reports-table th:nth-child(2) {
+    padding-left: 50px;
+  }
+
+  .reports-table th:nth-child(6) {
+    text-align: center;
+    padding-right: 50px;
+  }
+
+  .reports-table th:last-child,
+  .reports-table td:last-child {
+    text-align: right;
+  }
+
+  .reports-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Hover */
+  .reports-table tbody tr:hover {
+    background-color: #22313c;
+  }
+
+  .reports-table td {
+    font-size: 14px;
+    color: #e6eef3;
+  }
+
+  .reports-table td:first-child {
+    font-weight: 500;
+  }
+
+  /* Status pills */
+  .status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .status.verified {
+    background-color: #2e7d57;
+    color: #ffffff;
+  }
+
+  .status.rejected {
+    background-color: #8b3f3f;
+    color: #ffffff;
+  }
+
+  /* Upload button */
+  .upload-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+
+    background-color: #1D546D;
+    color: #F3F4F4;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .upload-btn:hover {
+    opacity: 0.9;
+  }
+
+  .welcome-card {
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    grid-column: 1 / -1;
+    background: #101F27;
+  }
+
+  .welcome-card h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 28px;
+  }
+
+  .welcome-card p {
+    margin-top: 6px;
+    font-size: 15px;
+    color: #F3F4F4;
+    opacity: 0.85;
+  }
+
+
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5000;
+    /* higher than header */
+    padding: 20px;
+  }
+
+  /* Modal card */
+  .upload-modal {
+    width: 420px;
+    background-color: #3b444b;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .upload-modal h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .modal-subtext {
+    font-size: 16px;
+    /* was 14px */
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+
+  /* Form */
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    /* was 14px */
+    font-weight: 600;
+  }
+
+  .required {
+    color: #ff6b6b;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 14px;
+    font-size: 15px;
+    background-color: #1e2a32;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #f3f4f4;
+  }
+
+  /* Actions */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn-cancel {
+    background: transparent;
+    border: none;
+    color: #f3f4f4;
+    opacity: 0.7;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .btn-submit {
+    background-color: #5f9598;
+    border: none;
+    padding: 10px 18px;
+    /* bigger hit area */
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .document-modal {
+    width: 440px;
+    background-color: #3b444b;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .daily-report-modal {
+    width: 440px;
+    background-color: #3b444b;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .file-drop {
+    background-color: #0e1a23;
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 36px 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .file-drop p {
+    margin: 6px 0;
+    font-size: 16px;
+  }
+
+  .file-drop span {
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  .file-icon {
+    font-size: 22px;
+    opacity: 0.7;
+  }
+
+  /* Make textarea match inputs */
+  .form-group textarea.form-textarea {
+    width: 100%;
+    background-color: #1e2a32;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #f3f4f4;
+    font-size: 14px;
+    resize: none;
+    /* prevents ugly drag resize */
+    box-sizing: border-box;
+  }
+
+  .filter-wrapper {
+    position: relative;
+  }
+
+  .filter-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: #1D546D;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .filter-dropdown button {
+    width: 100%;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    color: #F3F4F4;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .filter-dropdown button:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: #F3F4F4;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  .modal-close:hover {
+    opacity: 1;
+  }
+
+  .form-error {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #e57373;
+  }
+
+  .file-drop.error {
+    border: 1px solid #e57373;
+    background-color: rgba(229, 115, 115, 0.08);
+  }
+
+  .success-banner {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 170, 0.15);
+    border: 1px solid #4f7f6e;
+    color: #88d7bc;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .reports-card {
+      border-radius: 12px;
+    }
+
+    .reports-table {
+      min-width: 640px;
+      /* smaller phones */
+    }
+
+    .upload-modal,
+    .document-modal,
+    .daily-report-modal {
+      width: calc(100% - 24px);
+      padding: 24px;
+    }
+
+    .upload-modal h3,
+    .document-modal h3,
+    .daily-report-modal h3 {
+      font-size: 20px;
+    }
+  }
+
+  /* Modal card – larger and more readable */
+  .upload-modal,
+  .document-modal,
+  .daily-report-modal {
+    width: 560px;
+    /* was ~420–440px */
+    max-width: calc(100% - 48px);
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #3b444b;
+    border-radius: 14px;
+    padding: 32px;
+    /* was 20–24px */
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+    position: relative;
+  }
+
+  .upload-modal h3,
+  .document-modal h3,
+  .daily-report-modal h3 {
+    font-size: 24px;
+    /* was ~20px */
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .search-box {
+    background-color: #F3F4F4;
+    padding: 0 10px;
+    gap: 8px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    color: #061E29;
+    font-size: 14px;
+  }
+
+  .search-box input::placeholder {
+    color: rgba(6, 30, 41, 0.6);
+  }
+
+  /* Header actions (search + filter) */
+  .reports-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .file-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #6fbf9f;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .file-link:hover {
+    text-decoration: underline;
+  }
+
+  .view-btn {
+    background-color: #4F8CFF;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  @media (max-width: 768px) {
+
+    /* Page padding */
+    .reports-page {
+      padding: 16px;
+    }
+
+    /* Welcome card scaling */
+    .welcome-card {
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .welcome-card h2 {
+      font-size: 26px;
+    }
+
+    .welcome-card p {
+      font-size: 14px;
+    }
+
+    /* Main reports card — match monthly-card spacing */
+    .reports-card {
+      padding: 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* Header layout */
+    .reports-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .reports-header h3 {
+      font-size: 20px;
+    }
+
+    /* Actions stack neatly */
+    .reports-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .search-box {
+      width: 100%;
+    }
+
+    .filter-wrapper {
+      width: 100%;
+    }
+
+    .filter-btn {
+      width: 100%;
+    }
+
+    .reports-table-wrapper {
+      overflow-x: auto;
+      padding: 0 16px 20px 16px;
+    }
+
+    /* Table adjustments */
+    .reports-table {
+      min-width: 720px;
+      table-layout: auto;
+    }
+
+    .reports-table th,
+    .reports-table td {
+      white-space: nowrap;
+      /* allow wrapping */
+      word-break: break-word;
+      /* break long words/files */
+    }
+
+    /* Floating upload button */
+    .upload-btn {
+      right: 16px;
+      bottom: 16px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    /* Modal adjustments */
+    .upload-modal,
+    .document-modal,
+    .daily-report-modal {
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .modal-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+      width: 100%;
+    }
+
+    .view-btn {
+      background-color: #4F8CFF;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+
+  }
+
+  /* =========================
+   LIGHT MODE - REPORTS
+========================= */
+
+  body.light .reports-page {
+    background: transparent;
+  }
+
+  /* Main Card */
+  body.light .reports-card {
+    background: #ffffff;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Header strip */
+  body.light .reports-header {
+    background: #2b5d73;
+    color: #ffffff;
+  }
+
+  /* Filter button */
+  body.light .filter-btn {
+    background-color: #ffffff;
+    color: #1f2d36;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Table Header */
+  body.light .reports-table thead {
+    background: #f3f6f8;
+  }
+
+  body.light .reports-table th {
+    color: #1f2d36;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Table Rows */
+  body.light .reports-table tbody tr {
+    background-color: #ffffff;
+  }
+
+  body.light .reports-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  body.light .reports-table tbody tr:hover {
+    background-color: #f5f8fa;
+  }
+
+  body.light .reports-table td {
+    color: #2c3e47;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Status pills */
+  body.light .status.verified {
+    background-color: #3fa77a;
+  }
+
+  body.light .status.rejected {
+    background-color: #c94b4b;
+  }
+
+  /* Upload button */
+  body.light .upload-btn {
+    background-color: #2b5d73;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  body.light .upload-btn:hover {
+    background-color: #244e61;
+  }
+
+  /* Welcome card */
+  body.light .welcome-card {
+    background: linear-gradient(to right, #2b5d73, #3c7a94);
+    color: #ffffff;
+  }
+
+  body.light .welcome-card p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Search box */
+  body.light .search-box {
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  body.light .search-box input {
+    color: #1f2d36;
+  }
+
+  body.light .search-box input::placeholder {
+    color: rgba(31, 45, 54, 0.5);
+  }
+
+  /* Filter dropdown */
+  body.light .filter-dropdown {
+    background-color: #ffffff;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  body.light .filter-dropdown button {
+    color: #1f2d36;
+  }
+
+  body.light .filter-dropdown button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* File link */
+  body.light .file-link {
+    color: #2b5d73;
+  }
+
+  /* View button */
+  body.light .view-btn {
+    background-color: #2b5d73;
+  }
+
+  body.light .view-btn:hover {
+    background-color: #244e61;
+  }
+
+  /* Modal overlay */
+  body.light .modal-overlay {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  /* Modals */
+  body.light .upload-modal,
+  body.light .document-modal,
+  body.light .daily-report-modal {
+    background-color: #ffffff;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+    color: #1f2d36;
+  }
+
+  body.light .modal-close {
+    color: #1f2d36;
+  }
+
+  /* Form inputs */
+  body.light .form-group input,
+  body.light .form-group select,
+  body.light .form-group textarea.form-textarea {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #1f2d36;
+  }
+
+  /* File drop */
+  body.light .file-drop {
+    background-color: #f4f6f8;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+  }
+
+  body.light .file-drop.error {
+    background-color: rgba(201, 75, 75, 0.08);
+    border: 1px solid #c94b4b;
+  }
+
+  /* Success banner */
+  body.light .success-banner {
+    background-color: rgba(63, 167, 122, 0.15);
+    border: 1px solid #3fa77a;
+    color: #2e7d57;
+  }
+
+  /* Cancel button */
+  body.light .btn-cancel {
+    color: #1f2d36;
+    opacity: 0.7;
+  }

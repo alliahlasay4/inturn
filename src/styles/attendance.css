@@ -1,0 +1,1309 @@
+.attendance-page {
+  padding: 24px;
+  min-height: 100vh;
+  background: #242D35;
+  border-radius: 24px;
+}
+
+/* ===== SUMMARY ROW ===== */
+
+
+
+.time-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+  /* allows stretch */
+  align-items: flex-start;
+}
+
+.time-left>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.time-center {
+  flex: 1;
+  /* takes remaining card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* vertical center */
+  align-items: center;
+  /* horizontal center */
+  text-align: center;
+}
+
+
+
+
+/* text column */
+.time-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.label {
+  font-size: 13px;
+  opacity: 0.7;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+
+.subtext {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.subtext.success {
+  color: #6fbf9f;
+}
+
+/* Time In / Time Out action button */
+
+.time-action-btn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #5f9598, #3b6f73);
+  color: #061e29;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  align-self: center;
+
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+
+}
+
+.time-action-btn:hover {
+  opacity: 0.9;
+}
+
+.time-action-btn:active {
+  transform: translateY(1px);
+}
+
+.time-action-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ===== STATUS TAGS ===== */
+
+.status-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.tag.late {
+  background-color: #7a4b4b;
+}
+
+.tag.ontime {
+  background-color: #4f7f6e;
+}
+
+.tag.absent {
+  background-color: #555;
+}
+
+.tag.undertime {
+  background-color: #9089CD;
+}
+
+/* ===== TABLE CARD ===== */
+
+.attendance-table-card {
+  margin-top: 8px;
+}
+
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+
+}
+
+.tabs {
+  display: flex;
+  gap: 18px;
+
+  border: none;
+  border-bottom: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #f3f4f4;
+  opacity: 0.6;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tab.active {
+  opacity: 1;
+  font-weight: 700;
+  /* just bold */
+}
+
+.filter-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #f3f4f4;
+  cursor: pointer;
+}
+
+/* ===== TABLE ===== */
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 720px;
+}
+
+.attendance-table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+
+.attendance-table th,
+.attendance-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.attendance-table td {
+  font-size: 16px;
+}
+
+.attendance-table th {
+  font-size: 20px;
+}
+
+.attendance-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+
+.status-pill.ontime {
+  background-color: #4f7f6e;
+  color: #e9f5ee;
+}
+
+.state-pill.small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: auto;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 14px;
+
+  box-shadow: none;
+  flex: 0 0 auto;
+}
+
+/* ===== PAGINATION ===== */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  background-color: #1d546d;
+  border: none;
+  color: #f3f4f4;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.hours-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.state-pill {
+  min-width: 120px;
+  text-align: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+
+  display: flex;
+  /* 👈 required */
+  align-items: center;
+  /* 👈 vertical center */
+  justify-content: center;
+  /* 👈 horizontal center */
+
+  flex: 1;
+  font-size: 22px;
+  font-weight: 700;
+
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+
+.state-pill.late {
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  color: #fff1f1;
+}
+
+.state-pill.ontime {
+  background: linear-gradient(135deg, #6fbf9f, #3e8e7e);
+  color: #ecfff6;
+}
+
+.state-pill.absent {
+  background: linear-gradient(135deg, #e76f51, #c94b4b);
+  color: #ffffff;
+}
+
+.state-pill.undertime {
+  background: linear-gradient(135deg, #9089CD, #6f67b7);
+  color: #fff4d6;
+}
+
+/* legend container */
+.status-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+  align-self: center;
+  font-size: 14px;
+  /* slightly bigger */
+  font-weight: 600;
+}
+
+/* base legend item */
+.status-legend .legend {
+  opacity: 0.9;
+}
+
+/* color-coded states (text only) */
+.status-legend .late {
+  color: #f4a261;
+  /* warm orange */
+}
+
+.status-legend .ontime {
+  color: #6fbf9f;
+  /* calm green-teal */
+}
+
+.status-legend .absent {
+  color: #e76f51;
+  /* muted red */
+}
+
+.status-legend .undertime {
+  color: #9089CD;
+  /* soft blue */
+}
+
+.status-legend .legend:hover {
+  opacity: 1;
+}
+
+/* FILTER SELECT */
+.filter-select {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #f3f4f4;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-select option {
+  background-color: #08121b;
+  color: #f3f4f4;
+}
+
+.filter-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(95, 149, 152, 0.4);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  background-color: #1d546d;
+  border: none;
+  color: #f3f4f4;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.monthly-summary {
+  margin-top: 20px;
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.monthly-card h4 {
+  margin-bottom: 10px;
+}
+
+.progress-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: conic-gradient(#6fbf9f 0% 94%,
+      rgba(255, 255, 255, 0.15) 94% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px auto;
+  font-weight: 700;
+}
+
+.month-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+
+
+.total-days {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.month-stats span {
+  font-size: 12px;
+}
+
+/* ===== MONTHLY SUMMARY CARDS ===== */
+
+.monthly-card {
+  background: linear-gradient(145deg, #1a2b38, #223746);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition: transform 0.2s ease;
+}
+
+.month-title {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.donut-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-center {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.total-hours-pill {
+  background: #3a8f97;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-row {
+  display: flex;
+  gap: 8px;
+}
+
+.pill {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.pill.late {
+  background: #f4a261;
+}
+
+.pill.absent {
+  background: #e76f51;
+}
+
+.pill.undertime {
+  background: #9089CD;
+}
+
+.empty-pill {
+  margin-top: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.monthly-card:hover {
+  transform: translateY(-4px);
+}
+
+.monthly-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+
+.month-stats {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ===== MONTHLY OVERALL SUMMARY ===== */
+/* ===== MONTHLY OVERALL SUMMARY ===== */
+
+.monthly-overall-summary {
+  background: #0C1823;
+  padding: 32px;
+  /* match history card breathing */
+  border-radius: 24px;
+  /* same roundness feel */
+  margin-top: 16px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.overall-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  /* strong separation like table header */
+}
+
+/* Main horizontal row */
+.overall-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+/* LEFT: title + year */
+.overall-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+  flex-shrink: 0;
+}
+
+.overall-left h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Year selector */
+.year-select {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 12px 14px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  color: #f3f4f4;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.year-select option {
+  background-color: #08121b;
+  color: #f3f4f4;
+}
+
+.overall-header {
+  margin-bottom: 24px;
+}
+
+/* CENTER: summary cards */
+.monthly-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  /* match table spacing rhythm */
+  width: 100%;
+}
+
+.summary-card {
+  border-radius: 20px;
+  /* softer, like main cards */
+  padding: 28px;
+  /* more breathing room */
+  min-height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* vertically balanced */
+  gap: 10px;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+}
+
+.summary-card p {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.summary-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* RIGHT: download button */
+.overall-right {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* Download button */
+.download-btn {
+  background: linear-gradient(135deg, #5f9598, #3b6f73);
+  color: #061e29;
+  border: none;
+  padding: 12px 14px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+.overall-content {
+  display: flex;
+  /* makes it horizontal */
+  align-items: stretch;
+  /* vertical alignment */
+  gap: 14px;
+  /* space between cards */
+  width: 100%;
+}
+
+.overall-header {
+  display: flex;
+  /* puts them beside each other */
+  align-items: center;
+  /* vertical alignment */
+  gap: 12px;
+  width: 100%;
+  /* space between title and dropdown */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== SUMMARY CARD COLORS (reuse tag palette) ===== */
+.summary-card.total {
+  background: linear-gradient(135deg, #1c2f3d, #223e52);
+}
+
+.summary-card.present {
+  background: linear-gradient(135deg, #4f7f6e, #6fbf9f);
+}
+
+.summary-card.late {
+  background: linear-gradient(135deg, #7a5a3a, #8a6d3b);
+}
+
+.summary-card.absent {
+  background: linear-gradient(135deg, #7a4b4b, #b65a5a);
+}
+
+.summary-card.undertime {
+  background: linear-gradient(135deg, #2f3b5e, #3c4f87);
+}
+
+.attendance-page .card h3 {
+  color: #F3F4F4;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =========================================
+   ATTENDANCE HISTORY - PROTOTYPE LAYOUT
+========================================= */
+
+.attendance-history-prototype {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  padding: 20px;
+  align-items: start;
+  border-radius: 18px;
+
+}
+
+/* Sections */
+.history-section {
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.history-section:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.total-section {
+  align-items: center;
+  text-align: center;
+}
+
+/* Titles */
+.section-title {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+
+/* Main values */
+.section-value {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.section-sub {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.section-sub.success {
+  color: #6fbf9f;
+}
+
+/* Time circle */
+.time-section {
+  flex-direction: column;
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.time-circle {
+  width: 140px;
+  height: 80px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #5f9598, #3b6f73);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+  color: #061e29;
+  font-weight: 700;
+}
+
+.time-icon {
+  font-size: 20px;
+}
+
+.time-value {
+  font-size: 20px;
+}
+
+.time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* important */
+}
+
+.time-section .section-sub {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.time-section .section-title {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.time-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* center circle + message */
+  justify-content: center;
+  margin-top: -12px;
+}
+
+/* Worked section */
+.worked-row {
+  display: flex;
+  gap: 18px;
+  margin: 10px 0;
+}
+
+.worked-hours-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.worked-status {
+  flex: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+
+}
+
+.worked-status.late {
+  background: #f4a261;
+}
+
+.worked-status.ontime {
+  background: #6fbf9f;
+}
+
+.worked-status.absent {
+  background: #e76f51;
+}
+
+.worked-status.undertime {
+  background: #9089CD;
+}
+
+
+@media (max-width: 1024px) {
+
+  /* Page spacing */
+  .attendance-page {
+    padding: 16px;
+  }
+
+
+
+  /* Card padding */
+
+  .attendance-table-card,
+  .monthly-card,
+  .summary-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  /* Main numbers */
+
+  .hours-box,
+  .state-pill {
+    font-size: 24px;
+  }
+
+  /* Labels and small text */
+  .label,
+  .subtext,
+  .status-legend,
+  .tab,
+  .filter-select {
+    font-size: 13px;
+  }
+
+  /* Buttons full width */
+  .time-action-btn,
+  .download-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  /* Monthly overall summary becomes vertical */
+  .overall-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .monthly-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* Attendance table adjustments */
+  .attendance-table {
+    font-size: 13px;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 10px 12px;
+  }
+
+  /* Monthly overall summary */
+  .overall-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+
+  /* Summary cards grid */
+  .overall-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .summary-card {
+    padding: 14px;
+  }
+
+  .summary-card h3 {
+    font-size: 20px;
+  }
+
+  .summary-card p {
+    font-size: 13px;
+  }
+
+  /* Monthly cards grid */
+  .monthly-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .monthly-card {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .monthly-card h4 {
+    font-size: 16px;
+  }
+
+  .progress-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .month-stats {
+    font-size: 12px;
+  }
+
+  .total-days {
+    font-size: 12px;
+  }
+
+  .time-action-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .download-btn {
+    width: auto;
+    align-self: flex-end;
+    /* pushes it to the right */
+  }
+
+  .attendance-history-prototype {
+    grid-template-columns: 1fr;
+    /* stack vertically */
+    gap: 20px;
+  }
+
+  .history-section {
+    padding: 0;
+    border-right: none !important;
+  }
+
+  .history-section:not(:last-child) {
+    border-right: none;
+  }
+
+
+
+}
+
+/* =========================
+   LIGHT MODE - ATTENDANCE
+========================= */
+
+body.light .attendance-page {
+  background: transparent;
+}
+
+/* ===== SUMMARY CARDS ===== */
+
+body.light .attendance-table-card,
+body.light .monthly-card,
+body.light .summary-card {
+  background: #ffffff;
+  color: #1f2d36;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+/* Card headings */
+body.light .attendance-page .card h3 {
+  color: #1f2d36;
+}
+
+/* Subtext success */
+body.light .subtext.success {
+  color: #3fa77a;
+}
+
+/* ===== ACTION BUTTON ===== */
+
+body.light .time-action-btn {
+  background: #2b5d73;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+body.light .time-action-btn:hover {
+  background: #244e61;
+}
+
+/* ===== STATUS PILLS (TOP SUMMARY) ===== */
+
+body.light .state-pill {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+body.light .state-pill.late {
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  color: #ffffff;
+}
+
+body.light .state-pill.ontime {
+   background: linear-gradient(135deg, #6fbf9f, #3e8e7e);
+  color: #ffffff;
+}
+
+body.light .state-pill.absent {
+  background: linear-gradient(135deg, #e76f51, #c94b4b);
+  color: #ffffff;
+}
+
+body.light .state-pill.undertime {
+  background: linear-gradient(135deg, #9089CD, #6f67b7);
+  color: #ffffff;
+}
+
+/* ===== TABS ===== */
+
+body.light .tab {
+  color: #1f2d36;
+  opacity: 0.6;
+}
+
+body.light .tab.active {
+  opacity: 1;
+  font-weight: 700;
+  border-bottom: none;
+  /* explicitly remove */
+}
+
+body.light .tabs {
+  border: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+/* ===== FILTER SELECT ===== */
+
+body.light .filter-select,
+body.light .year-select {
+  background-color: #ffffff;
+  color: #1f2d36;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.light .filter-select option,
+body.light .year-select option {
+  background-color: #ffffff;
+  color: #1f2d36;
+}
+
+/* ===== TABLE ===== */
+
+body.light .attendance-table th,
+body.light .attendance-table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light .attendance-table th {
+  color: #1f2d36;
+}
+
+body.light .attendance-table td {
+  color: #2c3e47;
+}
+
+body.light .attendance-table tbody tr:hover {
+  background-color: #f5f8fa;
+}
+
+/* Status pill inside table */
+body.light .status-pill.ontime {
+  background-color: #b7e4d3;
+  color: #1f5f4d;
+}
+
+/* ===== PAGINATION ===== */
+
+body.light .pagination button {
+  background-color: #2b5d73;
+  color: #ffffff;
+}
+
+body.light .pagination button:disabled {
+  opacity: 0.4;
+}
+
+/* ===== STATUS LEGEND ===== */
+
+body.light .status-legend .late {
+  color: #f4a261;
+}
+
+body.light .status-legend .ontime {
+  color: #6fbf9f;
+}
+
+body.light .status-legend .absent {
+  color: #e76f51;
+}
+
+body.light .status-legend .undertime {
+  color: #9089CD;
+}
+
+/* ===== MONTHLY SUMMARY CARDS ===== */
+
+body.light .monthly-card {
+  background: linear-gradient(145deg, #1a2b38, #223746);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #F3F4F4;
+}
+
+body.light .month-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light .progress-circle {
+  background: conic-gradient(#3fa77a 0% 94%,
+      rgba(0, 0, 0, 0.08) 94% 100%);
+  color: #1f2d36;
+}
+
+/* ===== MONTHLY OVERALL SUMMARY ===== */
+
+body.light .summary-card.total {
+  background: linear-gradient(135deg, #1f8f7a, #2aa892);
+  color: #ffffff;
+}
+
+body.light .summary-card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: none;
+}
+
+body.light .summary-card.late {
+  background: linear-gradient(135deg, #f57c00, #fb8c00);
+  color: #ffffff;
+}
+
+body.light .summary-card.ontime,
+body.light .summary-card.present {
+  background: linear-gradient(135deg, #2b3e50, #1f2d3a);
+  color: #ffffff;
+}
+
+body.light .summary-card.absent {
+  background: linear-gradient(135deg, #b71c1c, #c62828);
+  color: #ffffff;
+}
+
+body.light .summary-card.undertime {
+  background: linear-gradient(135deg, #5e35b1, #673ab7);
+  color: #ffffff;
+}
+
+/* FORCE LIGHT TEXT INSIDE COLORED SUMMARY CARDS */
+body.light .monthly-overall-summary .summary-card,
+body.light .monthly-overall-summary .summary-card h3,
+body.light .monthly-overall-summary .summary-card p,
+body.light .monthly-overall-summary .summary-card .card-icon,
+body.light .monthly-overall-summary .summary-card .card-icon svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Download button (monthly overall) */
+body.light .download-btn {
+  background: #2b5d73;
+  color: #ffffff;
+}
+
+body.light .download-btn:hover {
+  background: #244e61;
+}
+
+body.light .attendance-history-prototype {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+body.light .history-section:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light .section-title {
+  color: #6c7a86;
+  opacity: 1;
+}
+
+body.light .section-value {
+  color: #1f2d36;
+}
+
+body.light .time-circle {
+  background: linear-gradient(135deg, #d8f3e8, #b7e4d3);
+  color: #1f5f4d;
+}
+
+body.light .section-sub.success {
+  color: #2e7d57;
+}
+
+body.light .worked-hours-box,
+body.light .hours-box {
+  background: #e9eef2;           /* soft neutral container */
+  color: #1f2d36;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light .status-legend {
+  background: #eef3f6;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InTurn - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <i class="fa-solid fa-bars header-icon" id="sidebar-toggle"></i>
+            <h1 class="text-2xl font-bold" style="color: white; font-size: 24px;">InTurn Admin</h1>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell header-icon"></i>
+            <div class="profile-wrapper">
+                <i class="fa-solid fa-circle-user header-icon" id="profile-toggle"></i>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <button>Profile</button>
+                    <button id="mode-toggle">Light Mode</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout" id="main-layout">
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="admin-dashboard.html" class="active">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="interns.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Interns</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-folder-tree"></i>
+                        <span>Documents</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="dashboard">
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <h2>Welcome, Admin!</h2>
+                    <p id="current-time">Thursday, June 11, 2026</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Intern Management Overview -->
+                    <div class="card" style="grid-area: attendance;">
+                        <h3>Intern Management</h3>
+                        <div class="card-body">
+                            <div class="attendance-body">
+                                <div class="attendance-left">
+                                    <div class="attendance-row">
+                                        <span class="label">Total Interns:</span>
+                                        <span>48</span>
+                                    </div>
+                                    <div class="attendance-row">
+                                        <span class="label">Active Today:</span>
+                                        <span>42</span>
+                                    </div>
+                                    <div class="attendance-row">
+                                        <span class="label">New Requests:</span>
+                                        <span style="color: var(--warning-color);">5</span>
+                                    </div>
+                                </div>
+                                <div class="attendance-right">
+                                    <div class="attendance-metric">
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                        <div>
+                                            <p class="metric-label">Active Now</p>
+                                            <p class="metric-value">42</p>
+                                        </div>
+                                    </div>
+                                    <button class="primary-btn">Manage Interns</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Approvals -->
+                    <div class="card" style="grid-area: submission;">
+                        <h3>Pending Approvals</h3>
+                        <div class="card-body">
+                            <div class="submission-list">
+                                <div class="submission-item">
+                                    <div class="submission-left">
+                                        <i class="fa-solid fa-file-signature submission-icon"></i>
+                                        <div class="submission-info">
+                                            <h4>Weekly Reports</h4>
+                                            <p>Pending: <span class="status-text pending">12</span></p>
+                                        </div>
+                                    </div>
+                                    <button class="view-details-btn">Review</button>
+                                </div>
+                                <div class="submission-item">
+                                    <div class="submission-left">
+                                        <i class="fa-solid fa-id-card submission-icon"></i>
+                                        <div class="submission-info">
+                                            <h4>Documents</h4>
+                                            <p>Pending: <span class="status-text pending">8</span></p>
+                                        </div>
+                                    </div>
+                                    <button class="view-details-btn">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Summary -->
+                    <div class="card" style="grid-area: summary;">
+                        <div class="card-body">
+                            <div class="summary-stats">
+                                <div class="summary-stat-item">
+                                    <h4>On Time</h4>
+                                    <p>85%</p>
+                                </div>
+                                <div class="summary-stat-item">
+                                    <h4>Late</h4>
+                                    <p style="color: var(--warning-color);">10%</p>
+                                </div>
+                                <div class="summary-stat-item">
+                                    <h4>Absent</h4>
+                                    <p style="color: var(--danger-color);">5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Department Distribution -->
+                    <div class="card" style="grid-area: documents;">
+                        <div class="card-body">
+                            <div class="documents-summary">
+                                <div class="donut-placeholder">
+                                    48
+                                </div>
+                                <div class="docs-stats">
+                                    <div class="doc-stat-row">
+                                        <div class="dot" style="background: var(--accent-color);"></div>
+                                        <span>Dev: 20</span>
+                                    </div>
+                                    <div class="doc-stat-row">
+                                        <div class="dot" style="background: var(--success-color);"></div>
+                                        <span>Design: 12</span>
+                                    </div>
+                                    <div class="doc-stat-row">
+                                        <div class="dot" style="background: var(--warning-color);"></div>
+                                        <span>QA: 16</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Notifications -->
+                    <div class="card" style="grid-area: notifications;">
+                        <h3>Recent Activity</h3>
+                        <div class="card-body">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 12px; display: flex; justify-content: space-between;">
+                                    <span>New intern registered</span>
+                                    <span style="opacity: 0.6; font-size: 14px;">10m ago</span>
+                                </li>
+                                <li style="margin-bottom: 12px; display: flex; justify-content: space-between;">
+                                    <span>System backup complete</span>
+                                    <span style="opacity: 0.6; font-size: 14px;">1h ago</span>
+                                </li>
+                                <li style="display: flex; justify-content: space-between;">
+                                    <span>Large batch upload</span>
+                                    <span style="opacity: 0.6; font-size: 14px;">3h ago</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Performance Trends -->
+                    <div class="card" style="grid-area: performance;">
+                        <h3>Overall Performance</h3>
+                        <div class="card-body">
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
+                                    <span>Avg. Attendance</span>
+                                    <span style="color: var(--success-color);">92%</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
+                                    <span>Submission Rate</span>
+                                    <span style="color: var(--warning-color);">78%</span>
+                                </div>
+                                <div style="text-align: center; font-weight: 700; font-size: 18px; margin-top: 8px;">
+                                    System Health: Good
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Update Time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').innerText = now.toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mainLayout = document.getElementById('main-layout');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            if (window.innerWidth > 1024) {
+                mainLayout.classList.toggle('sidebar-collapsed');
+            } else {
+                sidebar.classList.toggle('open');
+            }
+        });
+
+        // Profile Dropdown
+        const profileToggle = document.getElementById('profile-toggle');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        profileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('show');
+        });
+
+        // Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light');
+            modeToggle.innerText = 'Dark Mode';
+        }
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            modeToggle.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('auth');
+            window.location.href = 'loginpage.html';
+        });
+    </script>
+</body>
+</html>
