@@ -14,14 +14,17 @@ export default function InternDocuments() {
     setCurrentPage(1);
   }, [search]);
 
-  // the files does not exist but the download function works
   const documents = [
     { name: "Non-Disclosure Agreement (NDA)", file: "/documents/nda.pdf" },
-    { name: "Business Permit", file: "/documents/business-permit.pdf" },
-    { name: "Internship Agreement", file: "/documents/internship-agreement.pdf" },
-    { name: "Non-Disclosure Agreement (NDA)", file: "/documents/nda.pdf" },
-    { name: "Business Permit", file: "/documents/business-permit.pdf" },
-    { name: "Internship Agreement", file: "/documents/internship-agreement.pdf" },
+    { name: "Company Business Permit & Mayor's License", file: "/documents/business-permit.pdf" },
+    { name: "Tripartite Internship Agreement (MOA)", file: "/documents/internship-agreement.pdf" },
+    { name: "Student Trainee Code of Conduct & Guidelines", file: "/documents/trainee-code-of-conduct.pdf" },
+    { name: "Weekly Daily Time Record (DTR) Template", file: "/documents/dtr-template.xlsx" },
+    { name: "Daily Accomplishment Report Format", file: "/documents/accomplishment-report-template.docx" },
+    { name: "Medical Clearance & Fit-to-Work Form", file: "/documents/medical-clearance-form.pdf" },
+    { name: "Midterm Supervisor Performance Appraisal", file: "/documents/midterm-appraisal.pdf" },
+    { name: "Final Internship Evaluation Rubric", file: "/documents/final-evaluation-rubric.pdf" },
+    { name: "Certificate of Completion Request Form", file: "/documents/certificate-request.pdf" }
   ];
 
   const filteredDocuments = documents.filter(doc =>

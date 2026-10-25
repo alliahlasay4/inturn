@@ -4,12 +4,12 @@ export default function AttendanceSummary() {
 
   const { attendance } = useAttendance();
 
-  const present = attendance.filter(a => a.status === "ontime").length;
-  const late = attendance.filter(a => a.status === "late").length;
+  const present = attendance.filter(a => a.status === "ontime" || (!a.wasLate && !a.wasUndertime && a.hours > 0)).length;
+  const late = attendance.filter(a => a.status === "late" || a.wasLate).length;
   const absent = attendance.filter(a => a.status === "absent").length;
 
   const totalHours = attendance.reduce((sum, record) => {
-    return sum + (record.hours || 0);
+    return sum + (Number(record.hours) || 0);
   }, 0);
 
   return (

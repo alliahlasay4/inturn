@@ -5,8 +5,12 @@ import Sidebar from "../components/Intern/Sidebar";
 import "../styles/layout.css";
 
 export default function InternLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  // default closed is better for mobile
+  const [sidebarOpen, setSidebarOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth >= 768;
+    }
+    return true;
+  });
 
   return (
     <>

@@ -47,7 +47,7 @@
   margin: 0;
 
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.55fr 1.2fr;
   grid-template-areas:
     "attendance submission"
     "summary documents"
@@ -73,7 +73,7 @@
   padding: 0;
 }
 
-.card h3 {
+.dashboard .card h3 {
   margin: 0;
   padding: 12px 18px;
   font-size: 16px;
@@ -153,35 +153,57 @@
 
 
 .attendance-summary-card {
+  grid-area: summary;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  padding: 14px 16px !important;
+  box-sizing: border-box;
+  background: #0C1823;
+  border-radius: 16px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .attendance-summary-card div {
-  flex: 1;
+  flex: 1 1 0px;
+  min-width: 0;
   border-right: 1px solid rgba(243, 244, 244, 0.12);
-}
-
-.attendance-summary-card h4 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.7;
-  letter-spacing: 0.3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4px;
 }
 
 .attendance-summary-card div:last-child {
   border-right: none;
 }
 
-.attendance-summary-card p {
-  margin-top: 6px;
-  font-size: 26px;
-  /* Balanced scale */
-  font-weight: 700;
+.attendance-summary-card h4 {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 600;
   color: #F3F4F4;
+  opacity: 0.7;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.attendance-summary-card p {
+  margin: 4px 0 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #F3F4F4;
+  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
 }
 
 
@@ -230,6 +252,39 @@
 
 .attendance-row .label {
   opacity: 0.7;
+}
+
+.attendance-progress-container {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.attendance-progress-track {
+  width: 100%;
+  max-width: 220px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.attendance-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #13979B 0%, #3ec3b9 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px rgba(19, 151, 155, 0.4);
+}
+
+body.light .attendance-progress-track {
+  background-color: #e2e8f0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.light .attendance-progress-fill {
+  background: linear-gradient(90deg, #0d9488 0%, #14b8a6 100%);
 }
 
 /* RIGHT SIDE */
@@ -378,14 +433,18 @@
   /* Make stats evenly spaced */
   .documents-summary-stats {
     width: 100%;
-    gap: 0;
+    gap: 8px;
     display: flex;
-    margin-top: -60px;
+    justify-content: space-around;
+    margin-top: 0;
   }
 
   .documents-summary-stats div {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .stat-value {
@@ -581,8 +640,17 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 16px 14px !important;
+  padding: 14px 16px !important;
   box-sizing: border-box;
+  background: #0C1823;
+  border-radius: 16px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #F3F4F4;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .documents-summary-left {
@@ -594,66 +662,73 @@
 
 .documents-summary-left h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 700;
+  color: #F3F4F4;
+  line-height: 1.2;
 }
 
 .documents-summary-left span {
   margin-top: 2px;
-  font-size: 11px;
-  opacity: 0.8;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #F3F4F4;
+  opacity: 0.7;
+  line-height: 1.2;
 }
 
 .documents-summary-divider {
-  width: 1px;
+  width: 1.5px;
   height: 38px;
-  background-color: rgba(243, 244, 244, 0.2);
+  background-color: rgba(243, 244, 244, 0.15);
+  opacity: 1;
   flex-shrink: 0;
+  margin: 0 2px;
 }
 
 .documents-summary-stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex: 1;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
 }
 
 .documents-summary-stats div {
   text-align: center;
-  flex: 1;
+  flex: 1 1 0px;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .stat-value {
   margin: 0;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 800;
   color: #F3F4F4;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
 }
 
 .stat-label {
-  margin-top: 2px;
+  margin-top: 3px;
   font-size: 11px;
-  font-weight: 600;
-  opacity: 0.9;
+  font-weight: 700;
+  color: #F3F4F4;
+  opacity: 0.75;
   white-space: nowrap;
+  line-height: 1.1;
 }
 
-/* Status colors – text only */
-
-.stat-label.pending {
-  color: #f4c430;
-}
-
-.stat-label.approved {
-  color: #6fbf9f;
-}
-
+.stat-label.pending,
+.stat-label.approved,
 .stat-label.rejected {
-  color: #e06c75;
+  color: #F3F4F4;
 }
+
 
 .attendance-card {
   grid-area: attendance;
@@ -785,12 +860,26 @@ body.light .attendance-metric svg {
 }
 
 /* Summary Numbers */
+body.light .attendance-summary-card {
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
 body.light .attendance-summary-card div {
+  border-right: 1px solid rgba(106, 146, 163, 0.35);
+}
+
+body.light .attendance-summary-card div:last-child {
   border-right: none;
 }
 
 body.light .attendance-summary-card p {
-  color: #1f2d36;
+  color: #1a4454 !important;
+}
+
+body.light .attendance-summary-card h4 {
+  color: #6a7f8a !important;
 }
 
 /* Notifications */
@@ -842,25 +931,40 @@ body.light .view-details:hover {
 }
 
 /* Documents Summary */
+body.light .documents-summary-card {
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #1a4454 !important;
+}
+
+body.light .documents-summary-left h4 {
+  color: #1a4454 !important;
+}
+
+body.light .documents-summary-left span {
+  color: #1a4454 !important;
+  opacity: 1;
+}
+
 body.light .documents-summary-divider {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #6a92a3;
+  opacity: 0.5;
 }
 
 body.light .stat-value {
-  color: #1f2d36;
+  color: #1a4454 !important;
 }
 
-/* Status colors (slightly refined for light bg) */
-body.light .stat-label.pending {
-  color: #d4a017;
+body.light .stat-label {
+  color: #1a4454 !important;
+  opacity: 1;
 }
 
-body.light .stat-label.approved {
-  color: #3fa77a;
-}
-
+body.light .stat-label.pending,
+body.light .stat-label.approved,
 body.light .stat-label.rejected {
-  color: #c94b4b;
+  color: #1a4454 !important;
 }
 
 /* Buttons */

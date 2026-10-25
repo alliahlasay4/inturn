@@ -32,8 +32,13 @@
 
   .reports-header h3 {
     margin: 0;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
     font-size: 18px;
     font-weight: 700;
+    color: #ffffff;
   }
 
   .filter-btn {
@@ -145,6 +150,11 @@
 
   .status.verified {
     background-color: #2e7d57;
+    color: #ffffff;
+  }
+
+  .status.pending {
+    background-color: #d97706;
     color: #ffffff;
   }
 

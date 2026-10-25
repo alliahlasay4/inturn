@@ -316,12 +316,15 @@
 /* legend container */
 .status-legend {
   display: flex;
-  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   margin-top: 10px;
-  align-self: center;
-  font-size: 14px;
-  /* slightly bigger */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13.5px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 /* base legend item */
@@ -733,19 +736,20 @@
 
 .attendance-history-prototype {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  padding: 20px;
+  grid-template-columns: 1fr 1fr 1.35fr;
+  padding: 20px 24px;
   align-items: start;
   border-radius: 18px;
-
+  gap: 12px;
 }
 
 /* Sections */
 .history-section {
-  padding: 0 28px;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .history-section:not(:last-child) {
@@ -1088,7 +1092,7 @@ body.light .state-pill.late {
 }
 
 body.light .state-pill.ontime {
-   background: linear-gradient(135deg, #6fbf9f, #3e8e7e);
+  background: linear-gradient(135deg, #6fbf9f, #3e8e7e);
   color: #ffffff;
 }
 
@@ -1292,7 +1296,8 @@ body.light .section-sub.success {
 
 body.light .worked-hours-box,
 body.light .hours-box {
-  background: #e9eef2;           /* soft neutral container */
+  background: #e9eef2;
+  /* soft neutral container */
   color: #1f2d36;
   border-radius: 8px;
   padding: 10px;
@@ -1301,9 +1306,12 @@ body.light .hours-box {
 
 body.light .status-legend {
   background: #eef3f6;
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
-  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
