@@ -59,6 +59,7 @@ body {
   flex: 1;
   /* 🔴 THIS is critical */
   width: 100%;
+  min-width: 0;
   padding: 24px;
   overflow-x: auto;
   overflow-y: auto;

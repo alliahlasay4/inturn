@@ -234,6 +234,13 @@ export default function InternReports() {
                 </div>
               )}
             </div>
+
+            <button
+              className="upload-header-btn"
+              onClick={() => setActiveModal("upload")}
+            >
+              + File Upload
+            </button>
           </div>
         </div>
 
@@ -263,16 +270,20 @@ export default function InternReports() {
               ) : (
                 paginatedDocuments.map((doc) => (
                   <tr key={doc.id}>
-                    <td>{doc.type}</td>
-                    <td>{doc.fileName}</td>
-                    <td>{doc.date}</td>
-                    <td>
+                    <td className="col-type">{doc.type}</td>
+                    <td className="col-filename" title={doc.fileName}>
+                      <span className="truncate-text">{doc.fileName}</span>
+                    </td>
+                    <td className="col-date">{doc.date}</td>
+                    <td className="col-status">
                       <span className={`status ${doc.status.toLowerCase()}`}>
                         {doc.status}
                       </span>
                     </td>
-                    <td>{doc.remarks}</td>
-                    <td>
+                    <td className="col-remarks" title={doc.remarks}>
+                      <span className="truncate-text">{doc.remarks}</span>
+                    </td>
+                    <td className="col-actions">
                       <button
                         className="view-btn"
                         onClick={() => handleViewDocument(doc)}
@@ -313,14 +324,6 @@ export default function InternReports() {
 
         </div>
       </div>
-
-      {/* UPLOAD BUTTON */}
-      <button
-        className="upload-btn"
-        onClick={() => setActiveModal("upload")}
-      >
-        ⬇ File Upload
-      </button>
 
       {/* MODALS */}
       {activeModal === "upload" && (

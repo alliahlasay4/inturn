@@ -64,6 +64,30 @@
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+  align-items: center;
+}
+
+.download-all-header-btn {
+  background-color: #13979B;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(19, 151, 155, 0.35);
+  transition: all 0.2s ease;
+}
+
+.download-all-header-btn:hover {
+  background-color: #0e7d80;
 }
 
 

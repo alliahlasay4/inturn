@@ -70,6 +70,13 @@ export default function InternDocuments() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
+
+            <button
+              className="download-all-header-btn"
+              onClick={handleDownloadAll}
+            >
+              <FaDownload /> Download All
+            </button>
           </div>
         </div>
 
@@ -149,12 +156,6 @@ export default function InternDocuments() {
           )}
 
         </div>
-        <button
-          className="download-all-btn"
-          onClick={handleDownloadAll}
-        >
-          ⬇ Download All
-        </button>
       </div >
     </div >
   );
